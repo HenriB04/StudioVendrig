@@ -558,7 +558,7 @@ a:hover { color: var(--accent); }
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
 }
-.footer-logo { height: 46px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(.92); }
+.footer-logo { height: 46px; width: auto; margin-bottom: 16px; }
 .footer-tagline { font-family: var(--font-display); font-size: 1.1rem; color: #e8d9c8; margin-bottom: 16px; }
 .footer-col h3 {
     font-family: var(--font-body);
