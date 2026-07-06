@@ -278,6 +278,66 @@ a:hover { color: var(--accent); }
 .page-hero h1 { margin-bottom: 14px; }
 
 /* --------------------------------------------------------------------------
+   Bouwanimatie: huis tekent zichzelf tijdens het scrollen
+   -------------------------------------------------------------------------- */
+.bouw-section {
+    height: 320vh;
+    background: var(--paper-alt);
+}
+.bouw-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 95px 24px 30px;
+    overflow: hidden;
+}
+#huisSvg {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    max-height: 52vh;
+}
+.bouw-fases {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+.bouw-fase {
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #9a958c;
+    padding-bottom: 6px;
+    border-bottom: 3px solid transparent;
+    transition: color .4s, border-color .4s;
+}
+.bouw-fase.is-active { color: var(--ink); }
+.bouw-fase-0.is-active { border-bottom-color: var(--dienst-0); }
+.bouw-fase-1.is-active { border-bottom-color: var(--dienst-1); }
+.bouw-fase-2.is-active { border-bottom-color: var(--dienst-2); }
+.bouw-klaar {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .5s, transform .5s;
+}
+.bouw-klaar.is-zichtbaar { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .bouw-section { height: auto; padding: 60px 0; }
+    .bouw-sticky { position: static; height: auto; }
+}
+
+/* --------------------------------------------------------------------------
    Projectkaarten
    -------------------------------------------------------------------------- */
 .project-grid {

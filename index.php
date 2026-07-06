@@ -42,6 +42,56 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<!-- Scrollanimatie: een huis dat wordt opgebouwd terwijl je scrollt -->
+<section class="bouw-section" id="bouwSection">
+    <div class="bouw-sticky">
+        <div class="container center">
+            <p class="section-kicker">Van schets tot sleutel</p>
+            <h2>Zo bouwen wij uw droom</h2>
+            <div class="bouw-fases">
+                <span class="bouw-fase bouw-fase-0">Ontwerp</span>
+                <span class="bouw-fase bouw-fase-1">Technische uitwerking</span>
+                <span class="bouw-fase bouw-fase-2">Realisatie</span>
+            </div>
+        </div>
+        <svg id="huisSvg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-label="Tekening van een huis dat wordt opgebouwd">
+            <!-- Vlakken die op het eind zachtjes inkleuren -->
+            <g class="huis-vlakken" opacity="0">
+                <rect x="240" y="270" width="320" height="160" fill="#ffffff"/>
+                <polygon points="215,288 400,155 585,288" fill="#ece6dd"/>
+                <rect x="330" y="330" width="60" height="100" fill="#0066b3" opacity=".85"/>
+                <rect x="255" y="340" width="60" height="70" fill="#dcebf6"/>
+                <rect x="430" y="340" width="90" height="70" fill="#dcebf6"/>
+                <rect x="375" y="205" width="50" height="50" fill="#dcebf6"/>
+                <circle cx="690" cy="120" r="30" fill="#ffde16" opacity=".8"/>
+                <circle cx="150" cy="340" r="38" fill="#e2e8d9"/>
+            </g>
+            <!-- Lijnen die zich al scrollend tekenen -->
+            <g fill="none" stroke="#1c1c1c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path class="huis-pad" data-van="0"   data-tot=".08" d="M80 430 H720"/>
+                <path class="huis-pad" data-van=".06" data-tot=".16" d="M220 430 v12 h360 v-12"/>
+                <path class="huis-pad" data-van=".14" data-tot=".26" d="M240 430 V270"/>
+                <path class="huis-pad" data-van=".14" data-tot=".26" d="M560 430 V270"/>
+                <path class="huis-pad" data-van=".24" data-tot=".42" d="M215 288 L400 155 L585 288"/>
+                <path class="huis-pad" data-van=".40" data-tot=".48" d="M470 207 V150 H504 V232"/>
+                <path class="huis-pad" data-van=".46" data-tot=".56" d="M330 430 V330 H390 V430"/>
+                <path class="huis-pad" data-van=".52" data-tot=".62" d="M255 340 H315 V410 H255 Z"/>
+                <path class="huis-pad" data-van=".52" data-tot=".62" d="M430 340 H520 V410 H430 Z"/>
+                <path class="huis-pad" data-van=".58" data-tot=".66" d="M375 205 H425 V255 H375 Z"/>
+                <path class="huis-pad" data-van=".64" data-tot=".74" d="M285 340 V410 M255 375 H315"/>
+                <path class="huis-pad" data-van=".64" data-tot=".74" d="M475 340 V410 M430 375 H520"/>
+                <path class="huis-pad" data-van=".68" data-tot=".76" d="M400 205 V255 M375 230 H425"/>
+                <circle class="huis-pad" data-van=".74" data-tot=".78" cx="380" cy="385" r="4"/>
+                <path class="huis-pad" data-van=".78" data-tot=".84" d="M150 430 V378"/>
+                <circle class="huis-pad" data-van=".80" data-tot=".90" cx="150" cy="340" r="38"/>
+                <path class="huis-pad" data-van=".84" data-tot=".92" d="M625 430 q22 -38 48 0 M665 430 q18 -28 38 0"/>
+                <circle class="huis-pad" data-van=".88" data-tot=".96" cx="690" cy="120" r="30"/>
+            </g>
+        </svg>
+        <p class="bouw-klaar">Opgeleverd!</p>
+    </div>
+</section>
+
 <!-- Uitgelichte projecten -->
 <section class="section section-alt">
     <div class="container">
