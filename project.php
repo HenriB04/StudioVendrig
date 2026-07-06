@@ -51,12 +51,9 @@ require __DIR__ . '/includes/header.php';
         <div class="project-gallery">
             <?php foreach ($project['images'] as $i => $img): ?>
             <figure class="gallery-item">
-                <a href="<?= e($img['file']) ?>" class="gallery-link" data-caption="<?= e($img['name']) ?>">
+                <a href="<?= e($img['file']) ?>" class="gallery-link">
                     <img src="<?= e($img['file']) ?>" alt="<?= e($img['name']) ?>" loading="lazy">
                 </a>
-                <?php if ($img['name'] !== ''): ?>
-                    <figcaption><?= e($img['name']) ?></figcaption>
-                <?php endif; ?>
             </figure>
             <?php endforeach; ?>
         </div>
