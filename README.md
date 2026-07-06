@@ -42,6 +42,25 @@ assets/              CSS, JavaScript, afbeeldingen en bijlagen
 
 Berichten worden lokaal weggeschreven naar `berichten.log` (genegeerd door git). Op een echte host met een mailserver verstuurt `mail()` het bericht naar info@studiovendrig.nl.
 
-## Hosting
+## Hosting via GitHub Pages
 
-GitHub kan de **code** hosten (deze repository), maar GitHub Pages voert geen PHP uit. Voor een live PHP-site is een PHP-host nodig, bijvoorbeeld een gratis/goedkope host als InfinityFree, of een Nederlandse hoster (Vimexx, TransIP, etc.). De site draait op elke standaard PHP-host: upload de bestanden en klaar — er is geen database of configuratie nodig.
+GitHub Pages voert geen PHP uit, maar deze repository bevat een **statische export** van de site in de map [docs/](docs/), gegenereerd met [build.php](build.php). Die map kan GitHub Pages wél serveren.
+
+**Eenmalig inschakelen:**
+1. Ga naar https://github.com/HenriB04/StudioVendrig/settings/pages
+2. Kies bij *Source*: **Deploy from a branch**
+3. Kies branch **main** en map **/docs**, klik *Save*
+
+Na een paar minuten staat de site live op **https://henrib04.github.io/StudioVendrig/**
+
+**Na het aanpassen van inhoud** genereer je de statische versie opnieuw en push je:
+
+```powershell
+cd C:\StudioVendrig
+C:\php\php.exe build.php
+git add -A
+git commit -m "Inhoud bijgewerkt"
+git push
+```
+
+Let op: op de statische versie werkt het PHP-contactformulier niet; daar staat automatisch een e-mailknop voor in de plaats. Voor een live site mét werkend formulier is een PHP-host nodig (bijv. Vimexx, TransIP of gratis via InfinityFree) — upload dan gewoon de PHP-bestanden.
