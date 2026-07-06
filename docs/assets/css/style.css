@@ -9,8 +9,8 @@
     --paper:      #faf8f5;
     --paper-alt:  #f0ece6;
     --line:       #e2ddd5;
-    --accent:     #b0784a;   /* koper */
-    --accent-dark:#8f5f38;
+    --accent:     #0066b3;   /* logoblauw */
+    --accent-dark:#004f8c;
     --dienst-0:   #ed1c24;   /* Bouwkunst — rood uit het logo */
     --dienst-1:   #0066b3;   /* Bouwtechniek — blauw uit het logo */
     --dienst-2:   #ffde16;   /* Projectmanagment — geel uit het logo */
@@ -174,7 +174,7 @@ a:hover { color: var(--accent); }
     letter-spacing: .35em;
     font-size: .8rem;
     margin-bottom: 18px;
-    color: #e8d9c8;
+    color: #cfe0ef;
 }
 .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); margin-bottom: 26px; }
 
@@ -320,7 +320,7 @@ a:hover { color: var(--accent); }
     color: var(--accent-dark);
     margin-bottom: 8px;
 }
-.project-card-cat.on-dark { color: #e8d9c8; }
+.project-card-cat.on-dark { color: #cfe0ef; }
 .project-card h3 { font-size: 1.1rem; }
 
 /* Filterbalk */
@@ -551,7 +551,7 @@ a:hover { color: var(--accent); }
 .form-field textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(176, 120, 74, .15);
+    box-shadow: 0 0 0 3px rgba(0, 102, 179, .15);
 }
 .form-error { color: #a33; font-size: .85rem; }
 .form-success {
@@ -585,7 +585,7 @@ a:hover { color: var(--accent); }
     gap: 40px;
 }
 .footer-logo { height: 46px; width: auto; margin-bottom: 16px; }
-.footer-tagline { font-family: var(--font-display); font-size: 1.1rem; color: #e8d9c8; margin-bottom: 16px; }
+.footer-tagline { font-family: var(--font-display); font-size: 1.1rem; color: #d8e4ee; margin-bottom: 16px; }
 .footer-col h3 {
     font-family: var(--font-body);
     font-size: .75rem;
@@ -596,8 +596,8 @@ a:hover { color: var(--accent); }
     margin-bottom: 10px;
 }
 .footer-col p { margin-bottom: 18px; }
-.footer-col a { color: #d8cfc2; }
-.footer-col a:hover { color: var(--accent); }
+.footer-col a { color: #c8d6e2; }
+.footer-col a:hover { color: #7db8e0; }
 .footer-nav { list-style: none; }
 .footer-nav li { margin-bottom: 6px; }
 
@@ -650,7 +650,7 @@ a:hover { color: var(--accent); }
     border-radius: var(--radius);
     box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
 }
-.lightbox-caption { color: #d8cfc2; font-size: .95rem; }
+.lightbox-caption { color: #d5dde4; font-size: .95rem; }
 .lightbox button {
     position: absolute;
     background: none;
