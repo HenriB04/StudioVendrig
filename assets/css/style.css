@@ -11,9 +11,13 @@
     --line:       #e2ddd5;
     --accent:     #b0784a;   /* koper */
     --accent-dark:#8f5f38;
-    --dienst-0:   #b0784a;   /* Bouwkunst */
-    --dienst-1:   #5f7470;   /* Bouwtechniek */
-    --dienst-2:   #7d6a55;   /* Projectmanagment */
+    --dienst-0:   #ed1c24;   /* Bouwkunst — rood uit het logo */
+    --dienst-1:   #0066b3;   /* Bouwtechniek — blauw uit het logo */
+    --dienst-2:   #ffde16;   /* Projectmanagment — geel uit het logo */
+    --tricolor:   linear-gradient(90deg,
+                      var(--dienst-0) 0 33.4%,
+                      var(--dienst-1) 33.4% 66.7%,
+                      var(--dienst-2) 66.7% 100%);
     --font-display: 'Marcellus', 'Georgia', serif;
     --font-body:    'Jost', 'Segoe UI', sans-serif;
     --shadow: 0 10px 30px rgba(28, 28, 28, .08);
@@ -67,6 +71,13 @@ a:hover { color: var(--accent); }
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
     transition: box-shadow .3s;
+}
+/* Logostreep: rood, blauw en geel zoals in het Studio Vendrig-logo */
+.site-header::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: var(--tricolor);
 }
 .site-header.is-scrolled { box-shadow: var(--shadow); }
 
@@ -176,7 +187,7 @@ a:hover { color: var(--accent); }
 }
 .hero-diensten .dienst {
     padding: 6px 16px;
-    border: 1px solid rgba(255, 255, 255, .45);
+    border: 2px solid rgba(255, 255, 255, .45);
     border-radius: 999px;
     font-size: .8rem;
     letter-spacing: .12em;
@@ -338,7 +349,8 @@ a:hover { color: var(--accent); }
 .category-title {
     margin-bottom: 28px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 3px solid;
+    border-image: var(--tricolor) 1;
     display: inline-block;
 }
 
@@ -479,10 +491,18 @@ a:hover { color: var(--accent); }
    CTA-band
    -------------------------------------------------------------------------- */
 .cta-band {
+    position: relative;
     background: var(--ink);
     color: #fff;
     padding: 80px 0;
     text-align: center;
+}
+.cta-band::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--tricolor);
 }
 .cta-band h2 { margin-bottom: 12px; }
 .cta-band p { color: #cfc9c0; margin-bottom: 30px; }
@@ -549,6 +569,12 @@ a:hover { color: var(--accent); }
     background: #141311;
     color: #b8b2a8;
     font-size: .95rem;
+}
+.site-footer::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: var(--tricolor);
 }
 .footer-grid {
     max-width: 1200px;
@@ -657,7 +683,7 @@ a:hover { color: var(--accent); }
     .nav-toggle { display: flex; }
     .main-nav {
         position: fixed;
-        top: 73px; left: 0; right: 0;
+        top: 77px; left: 0; right: 0;
         background: var(--paper);
         border-bottom: 1px solid var(--line);
         transform: translateY(-130%);
