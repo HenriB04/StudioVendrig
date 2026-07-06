@@ -38,7 +38,7 @@ HTML,
 <p>Wij zullen de site de aankomende tijd nog aanvullen met diverse andere gerealiseerde Projecten.</p>
 <p>Studio Vendrig staat voor u klaar voor de meest uidagende projecten van kleinschalig tot grootschallig.</p>
 <p>Laat u inspireren!</p>
-<p><em>De website is gerealiseerd in samenwerking met Draads Media en de huisstijl met Todays Media.</em></p>
+<p><em>De huisstijl is gerealiseerd in samenwerking met Todays Media.</em></p>
 HTML,
         'attachments' => [],
         'image'   => 'assets/img/slider/slide2.jpg',
