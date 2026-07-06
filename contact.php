@@ -31,7 +31,7 @@ if (!$isStatic && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $form['bericht'], str_repeat('-', 60)
         );
         @file_put_contents(__DIR__ . '/berichten.log', $log, FILE_APPEND);
-        @mail(CONTACT['email'], 'Contactformulier studiovendrig.nl — ' . $form['naam'], $form['bericht'], 'From: ' . $form['email']);
+        @mail(CONTACT['email'], 'Contactformulier studiovendrig.nl van ' . $form['naam'], $form['bericht'], 'From: ' . $form['email']);
         $sent = true;
         $form = ['naam' => '', 'email' => '', 'telefoon' => '', 'bericht' => ''];
     }

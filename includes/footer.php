@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; <?= date('Y') ?> Architectenbureau <?= SITE_NAME ?> &mdash; Meidoornkade 22, 3992 AE Houten</p>
+        <p>&copy; <?= date('Y') ?> Architectenbureau <?= SITE_NAME ?> &middot; Meidoornkade 22, 3992 AE Houten</p>
     </div>
 </footer>
 

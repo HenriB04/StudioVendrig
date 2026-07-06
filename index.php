@@ -36,8 +36,8 @@ require __DIR__ . '/includes/header.php';
         <p class="section-kicker">Sinds 2005</p>
         <h2>Ontwerp, engineering en uitvoering, onlosmakelijk verbonden</h2>
         <p class="lead">Studio Vendrig cre&euml;ert voor u de juiste omgeving. Van kleine tot grootschalige
-        projecten, van woningbouw tot gezondheidszorg, van aanbouw en verbouw tot nieuwbouw &mdash;
-        met knowhow op het gebied van bouwkunst, bouwtechniek en projectmanagement.</p>
+        projecten, van woningbouw tot gezondheidszorg, van aanbouw en verbouw tot nieuwbouw.
+        Altijd met knowhow op het gebied van bouwkunst, bouwtechniek en projectmanagement.</p>
         <a class="btn btn-outline" href="studio.php">Over de studio</a>
     </div>
 </section>
@@ -105,7 +105,7 @@ require __DIR__ . '/includes/header.php';
 <section class="cta-band">
     <div class="container center">
         <h2>Een bouwplan of ontwerpvraag?</h2>
-        <p>Van initiatief tot en met oplevering &mdash; wij denken graag met u mee.</p>
+        <p>Van initiatief tot en met de oplevering denken wij graag met u mee.</p>
         <a class="btn btn-light" href="contact.php">Neem contact op</a>
     </div>
 </section>
