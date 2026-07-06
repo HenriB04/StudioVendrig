@@ -54,10 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (bouwSection && !reducedMotion) {
         var paden = Array.prototype.slice.call(bouwSection.querySelectorAll('.huis-pad'));
+        var teksten = Array.prototype.slice.call(bouwSection.querySelectorAll('.huis-fade'));
         var vlakken = bouwSection.querySelector('.huis-vlakken');
+        var schetsGroep = bouwSection.querySelector('.schets-groep');
+        var maatGroep = bouwSection.querySelector('.maat-groep');
         var fases = Array.prototype.slice.call(bouwSection.querySelectorAll('.bouw-fase'));
         var klaar = bouwSection.querySelector('.bouw-klaar');
-        var faseDrempels = [0.05, 0.45, 0.78];
+        // Drempels gelijk aan de tekenfases: schets 0-30%, maatvoering 30-55%, bouw 55-100%
+        var faseDrempels = [0.02, 0.30, 0.55];
 
         paden.forEach(function (pad) {
             var lengte = pad.getTotalLength();
@@ -66,21 +70,31 @@ document.addEventListener('DOMContentLoaded', function () {
             pad.style.strokeDashoffset = lengte;
         });
 
+        function deel(voortgang, van, tot) {
+            return Math.min(1, Math.max(0, (voortgang - van) / (tot - van)));
+        }
+
         function updateBouw() {
             var rect = bouwSection.getBoundingClientRect();
             var scrollbaar = rect.height - window.innerHeight;
             var voortgang = Math.min(1, Math.max(0, -rect.top / scrollbaar));
 
             paden.forEach(function (pad) {
-                var van = parseFloat(pad.dataset.van);
-                var tot = parseFloat(pad.dataset.tot);
-                var t = Math.min(1, Math.max(0, (voortgang - van) / (tot - van)));
+                var t = deel(voortgang, parseFloat(pad.dataset.van), parseFloat(pad.dataset.tot));
                 pad.style.strokeDashoffset = pad.dataset.lengte * (1 - t);
             });
 
-            // Vlakken kleuren zachtjes in op het eind
-            var vulling = Math.min(1, Math.max(0, (voortgang - 0.9) / 0.1));
-            vlakken.setAttribute('opacity', vulling * 0.9);
+            // Maatgetallen faden in tijdens de technische uitwerking
+            teksten.forEach(function (tekst) {
+                tekst.setAttribute('opacity', deel(voortgang, parseFloat(tekst.dataset.van), parseFloat(tekst.dataset.tot)));
+            });
+
+            // Tijdens de bouw vervagen de schets en de maatvoering naar de achtergrond
+            schetsGroep.setAttribute('opacity', 1 - 0.75 * deel(voortgang, 0.55, 0.9));
+            maatGroep.setAttribute('opacity', 1 - 0.7 * deel(voortgang, 0.62, 0.9));
+
+            // Vlakken kleuren in bij de oplevering
+            vlakken.setAttribute('opacity', 0.9 * deel(voortgang, 0.93, 1));
 
             fases.forEach(function (fase, i) {
                 fase.classList.toggle('is-active', voortgang >= faseDrempels[i]);
@@ -92,8 +106,11 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('resize', updateBouw, { passive: true });
         updateBouw();
     } else if (bouwSection && reducedMotion) {
-        // Zonder animatie: toon het voltooide huis
+        // Zonder animatie: toon het eindresultaat
         bouwSection.querySelector('.huis-vlakken').setAttribute('opacity', 0.9);
+        bouwSection.querySelector('.schets-groep').setAttribute('opacity', 0.25);
+        bouwSection.querySelector('.maat-groep').setAttribute('opacity', 0.3);
+        bouwSection.querySelectorAll('.huis-fade').forEach(function (t) { t.setAttribute('opacity', 1); });
         bouwSection.querySelectorAll('.bouw-fase').forEach(function (f) { f.classList.add('is-active'); });
         bouwSection.querySelector('.bouw-klaar').classList.add('is-zichtbaar');
     }
